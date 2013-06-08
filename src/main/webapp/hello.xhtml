@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+	
+<h:head>
+	<title>JSF 2.0 Hello World</title>
+</h:head>
+<h:body>
+
+
+
+ 	<h3>JSF 2.0 Hello World Example - hello.xhtml</h3>
+	<h:form>
+		<h:inputText value="#{helloBean.name}"></h:inputText>
+
+		<h:commandButton value="Welcome Me" action="welcome"></h:commandButton>
+	</h:form>
+	
+	
+	
+	
+	<h1>Calendar Example using RichFace</h1>
+
+			<h:form id="calendar">
+				<label for="CalendarID">Select date:</label>
+				<rich:calendar id="CalendarID"
+					value="#{richFaceCalendar.selectedDate}"
+					timeZone="#{richFaceCalendar.timeZone}"
+					datePattern="MMM-dd-yyyy">
+				</rich:calendar><br></br>
+				<h:commandButton action="#{richFaceCalendar.execute}" value="submit"></h:commandButton>
+			</h:form>
+	
+
+
+<h:form>
+<rich:panel style="width:50%">
+           <h:panelGrid columns="2">
+                     <h:outputText value="Name:"/>
+                      <h:inputText value="#{echoBean.name}"/>
+                     <h:outputText value="Echo:" />
+                     <h:outputText id="echo" value="#{echoBean.name}"/>
+                     <h:outputText value="Count:"/>
+                     <h:outputText id="count" value="#{echoBean.count}" />
+                     
+           </h:panelGrid>
+           <a4j:commandButton value="Submit"
+actionListener="#{echoBean.countListener}" render="echo,count" execute="@form"/>
+</rich:panel>
+</h:form>
+	
+	
+</h:body>
+</html>
+
+	
